@@ -69,15 +69,14 @@ const OAuthPage = () => {
       localStorage.setItem("token", data.token);
 
       const decoded: JwtPayload = jwtDecode(data.token);
+      // console.log(data.token);
       const role =
         decoded["http://schemas.microsoft.com/ws/2008/06/identity/claims/role"];
 
+
       if (role === "Admin") {
         window.location.href = "/admin/";
-      } else if (role === "Client") {
-        window.location.href = "/user/";
-      } else if (role === "Freelancer") {
-        console.log(role);
+      } else if (role === "normal") {
         window.location.href = "/user/";
       } else {
         window.location.href = "/";
