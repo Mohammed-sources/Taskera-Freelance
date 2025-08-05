@@ -50,7 +50,7 @@ const OAuthPage = () => {
 
     try {
       const response = await fetch(
-        "https://taskera.runasp.net/api/Auth/login",
+        "http://taskeraapi.runasp.net/api/Auth/login",
         {
           method: "POST",
           headers: { "Content-Type": "application/json" },
