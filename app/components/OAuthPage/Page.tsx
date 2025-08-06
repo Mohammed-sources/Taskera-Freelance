@@ -73,11 +73,16 @@ const OAuthPage = () => {
       const role =
         decoded["http://schemas.microsoft.com/ws/2008/06/identity/claims/role"];
 
+      const normalRole = decoded["user_role"];
 
       if (role === "Admin") {
         window.location.href = "/admin/";
       } else if (role === "normal") {
-        window.location.href = "/user/";
+        if (normalRole === "Freelancer") {
+          window.location.href = "/freelancer/";
+        } else {
+          window.location.href = "/client/";
+        }
       } else {
         window.location.href = "/";
       }
